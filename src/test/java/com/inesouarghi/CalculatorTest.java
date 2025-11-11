@@ -14,7 +14,6 @@ class CalculatorTest {
     @Test
     void testSubtract() {
         Calculator calc = new Calculator();
-        // Ce test réussit maintenant car le bug est corrigé
         assertEquals(1, calc.subtract(3, 2)); 
     }
 
@@ -27,7 +26,13 @@ class CalculatorTest {
     @Test
     void testDivideByZero() {
         Calculator calc = new Calculator();
-        // On vérifie que le code lève bien l'exception attendue
         assertThrows(IllegalArgumentException.class, () -> calc.divide(4, 0));
+    }
+
+    
+    @Test
+    void testMultiply() {
+        Calculator calc = new Calculator();
+        assertEquals(6, calc.multiply(2, 3));
     }
 }
