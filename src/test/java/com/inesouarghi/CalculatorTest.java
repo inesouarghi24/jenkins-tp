@@ -1,7 +1,8 @@
 package com.inesouarghi;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows; 
 
 class CalculatorTest {
     @Test
@@ -13,12 +14,20 @@ class CalculatorTest {
     @Test
     void testSubtract() {
         Calculator calc = new Calculator();
-        assertEquals(1, calc.subtract(3, 2)); // Test will fail due to bug
+        // Ce test réussit maintenant car le bug est corrigé
+        assertEquals(1, calc.subtract(3, 2)); 
     }
 
     @Test
     void testDivide() {
         Calculator calc = new Calculator();
         assertEquals(2, calc.divide(4, 2));
+    }
+
+    @Test
+    void testDivideByZero() {
+        Calculator calc = new Calculator();
+        // On vérifie que le code lève bien l'exception attendue
+        assertThrows(IllegalArgumentException.class, () -> calc.divide(4, 0));
     }
 }
