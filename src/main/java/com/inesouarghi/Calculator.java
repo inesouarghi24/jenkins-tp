@@ -8,7 +8,7 @@ public class Calculator {
     }
 
     public int subtract(int a, int b) {
-        return a - b + 1; // Intentional bug
+        return a - b; // Intentional bug on corrige 
     }
 
     // LA VOICI : La méthode "divide" qui manquait
