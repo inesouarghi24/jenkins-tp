@@ -1,30 +1,30 @@
 package com.inesouarghi;
 
 
-
 public class Calculator {
     public int add(int a, int b) {
         return a + b;
     }
 
     public int subtract(int a, int b) {
-        return a - b; // Intentional bug on corrige 
+        return a - b; //  correction  1 : Bug corrigé 
     }
 
-    // LA VOICI : La méthode "divide" qui manquait
     public int divide(int a, int b) {
-        return a / b; // No zero division handling
+        // corection 2 : Vérification ajouté
+        if (b == 0) {
+            throw new IllegalArgumentException("Division by zero is not allowed!");
+        }
+        return a / b;
     }
 
-    public void unusedMethod() {
-        System.out.println("I serve no purpose!");
-    }
+    //  correction 3 : La méthode "unusedMethod" a été supprimée.
 
     public int multiply(int a, int b) {
         int result = 0;
         for (int i = 0; i < b; i++) {
             result += a;
         }
-        return result; 
+        return result;
     }
 }
